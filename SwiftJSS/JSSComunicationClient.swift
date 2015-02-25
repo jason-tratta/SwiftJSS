@@ -82,12 +82,6 @@ class JSSCommunicationClient : NSURLProtocol {
     }
     
     
-
-    
-    
-    
-
-    
     
     func connection(connection: NSURLConnection!, didReceiveResponse response: NSURLResponse!) {
         
