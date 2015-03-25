@@ -172,7 +172,7 @@ class JSSCommunicationClient : NSURLProtocol {
         
         let dataLength = String(putData.length)
         theRequest.addValue(dataLength, forHTTPHeaderField: "Content-Length")
-        theRequest.addValue("text-html", forHTTPHeaderField: "Content-Type")
+        theRequest.addValue("text-xml", forHTTPHeaderField: "Content-Type")
         theRequest.HTTPMethod = method
         theRequest.HTTPBody = putData
         
@@ -181,11 +181,7 @@ class JSSCommunicationClient : NSURLProtocol {
         
         let theConnection = NSURLConnection(request: theRequest, delegate: self)
         
-        
-        do {
-            NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate.distantFuture() as NSDate)
-        } while !finished
-        
+
     }
     
  

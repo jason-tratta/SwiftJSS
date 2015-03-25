@@ -98,7 +98,7 @@ class ViewController: NSViewController, JSSCommClientDelegate, NSXMLParserDelega
     
     // MARK: Parser Methods
     
-    func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: [NSObject : AnyObject]!) {
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
         
         
         
@@ -113,13 +113,13 @@ class ViewController: NSViewController, JSSCommClientDelegate, NSXMLParserDelega
     
     
     
-    func parser(parser: NSXMLParser!, foundCharacters string: String!) {
+    func parser(parser: NSXMLParser, foundCharacters string: String?) {
         
         
     }
     
     
-    func parserDidEndDocument(parser: NSXMLParser!) {
+    func parserDidEndDocument(parser: NSXMLParser) {
         
         
         updateComputerCount()
