@@ -55,7 +55,13 @@ class JSSCommunicationClient : NSURLProtocol {
         self.data = NSMutableData()
         self.connection = NSURLConnection()
         
-        super.init()
+        // This "should" all super.init() It is not working.  The following is a workaround
+        
+        let theRequest = NSMutableURLRequest()
+        
+        super.init(request: theRequest, cachedResponse: nil, client:nil)
+        
+
     }
     
 
