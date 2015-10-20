@@ -81,7 +81,7 @@ class JSSCommunicationClient : NSURLProtocol {
         theRequest.addValue("application/xml", forHTTPHeaderField:"Accept")
     
     
-        var theConnection = NSURLConnection(request: theRequest, delegate: self, startImmediately: true)
+        let theConnection = NSURLConnection(request: theRequest, delegate: self, startImmediately: true)
     
         theConnection?.start()
     
@@ -92,7 +92,7 @@ class JSSCommunicationClient : NSURLProtocol {
     func connection(connection: NSURLConnection!, didReceiveResponse response: NSURLResponse!) {
         
     
-        println("Connecion Did Recieve Responce")
+        print("Connecion Did Recieve Responce")
     }
 
     
@@ -127,12 +127,12 @@ class JSSCommunicationClient : NSURLProtocol {
             
             let newCredential = NSURLCredential(user: jssUser, password: jssPass, persistence: NSURLCredentialPersistence.None)
             
-            challenge.sender.useCredential(newCredential, forAuthenticationChallenge: challenge)
+            challenge.sender!.useCredential(newCredential, forAuthenticationChallenge: challenge)
             
             
         } else {
             
-            challenge.sender.cancelAuthenticationChallenge(challenge)
+            challenge.sender!.cancelAuthenticationChallenge(challenge)
             finished = true
             commDelegate.authFailed("Bad username or Password")
         }
@@ -144,7 +144,7 @@ class JSSCommunicationClient : NSURLProtocol {
     func connectionShouldUseCredentialStorage(connection: NSURLConnection) -> Bool {
         
         
-        println("connectionShouldUseCredentialStorage")
+        print("connectionShouldUseCredentialStorage")
         
         return true
         
@@ -153,7 +153,7 @@ class JSSCommunicationClient : NSURLProtocol {
     
     func connection(connection: NSURLConnection!, didFailWithError error: NSError!) {
         
-        println("Fail")
+        print("Fail")
         finished = true
         commDelegate.connectionFailed(String(error.localizedDescription))
         

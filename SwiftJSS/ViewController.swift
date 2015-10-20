@@ -89,7 +89,7 @@ class ViewController: NSViewController, JSSCommClientDelegate, NSXMLParserDelega
     
     func updateComputerCount() {
         
-        var count = computerArray.count
+        let count = computerArray.count
         
         numberOfCPUsLabel.stringValue = String(count)
         
@@ -98,7 +98,7 @@ class ViewController: NSViewController, JSSCommClientDelegate, NSXMLParserDelega
     
     // MARK: Parser Methods
     
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         
         
         
@@ -138,7 +138,7 @@ class ViewController: NSViewController, JSSCommClientDelegate, NSXMLParserDelega
         
         let xmlOption = NSXMLDocumentValidate
         var error: NSErrorPointer? = nil
-        var xmlParser = NSXMLParser(data: data)
+        let xmlParser = NSXMLParser(data: data)
         xmlParser.delegate = self
         xmlParser.parse()
         
@@ -149,7 +149,7 @@ class ViewController: NSViewController, JSSCommClientDelegate, NSXMLParserDelega
     
     func updateStatus(statusMsg: String) {
         
-        println("Status:" + statusMsg)
+        print("Status:" + statusMsg)
         
         
     }
@@ -157,14 +157,14 @@ class ViewController: NSViewController, JSSCommClientDelegate, NSXMLParserDelega
     
     func connectionFailed(errMsg: String){
         
-        println("Connection Failed" + errMsg)
+        print("Connection Failed" + errMsg)
         
     }
     
     
     func authFailed(errMsg: String){
         
-        println("Auth Failed" + errMsg)
+        print("Auth Failed" + errMsg)
         
         
     }
@@ -172,19 +172,19 @@ class ViewController: NSViewController, JSSCommClientDelegate, NSXMLParserDelega
     
     func urlError(errMsg: String){
         
-        println("URL Error:" + errMsg)
+        print("URL Error:" + errMsg)
         
     }
     
     
     func otherError(errMsg: String){
         
-        println("Other Message" + errMsg)
+        print("Other Message" + errMsg)
     }
     
     func connectionSucceeded(message: String) {
         
-        println("Connection Succeeded" + message)
+        print("Connection Succeeded" + message)
         
         
     }
