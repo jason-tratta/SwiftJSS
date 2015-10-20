@@ -113,11 +113,6 @@ class ViewController: NSViewController, JSSCommClientDelegate, NSXMLParserDelega
     
     
     
-    func parser(parser: NSXMLParser, foundCharacters string: String?) {
-        
-        
-    }
-    
     
     func parserDidEndDocument(parser: NSXMLParser) {
         
@@ -136,8 +131,8 @@ class ViewController: NSViewController, JSSCommClientDelegate, NSXMLParserDelega
     func dataReturned(data: NSMutableData) {
         
         
-        let xmlOption = NSXMLDocumentValidate
-        var error: NSErrorPointer? = nil
+       // let xmlOption = NSXMLDocumentValidate
+       // var error: NSErrorPointer? = nil
         let xmlParser = NSXMLParser(data: data)
         xmlParser.delegate = self
         xmlParser.parse()

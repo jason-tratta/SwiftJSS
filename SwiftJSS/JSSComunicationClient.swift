@@ -171,7 +171,7 @@ class JSSCommunicationClient : NSURLProtocol {
         jssPass = jssPassword
         commDelegate = jssDelegate
         
-        let cachePolicy: NSURLRequestCachePolicy = NSURLRequestCachePolicy.UseProtocolCachePolicy
+        //let cachePolicy: NSURLRequestCachePolicy = NSURLRequestCachePolicy.UseProtocolCachePolicy
         
         let theURL: NSURL = NSURL(string: url + jssPath)!
         let theRequest = NSMutableURLRequest(URL: theURL, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60)
@@ -185,6 +185,7 @@ class JSSCommunicationClient : NSURLProtocol {
         theRequest.addValue("application/xml", forHTTPHeaderField: "Accept")
         
         
+        // This is needed to make the connection.
         let theConnection = NSURLConnection(request: theRequest, delegate: self)
         
 
