@@ -14,6 +14,7 @@
 		385734C71A9E29B2006C3681 /* JSSComunicationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385734C61A9E29B2006C3681 /* JSSComunicationClient.swift */; };
 		385734C91A9E29B8006C3681 /* JSSCommClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385734C81A9E29B8006C3681 /* JSSCommClientDelegate.swift */; };
 		385734CB1A9E29D0006C3681 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 385734CA1A9E29D0006C3681 /* Main.storyboard */; };
+		3867D1F21BE7AFE200676F63 /* Screen Shot.png in Resources */ = {isa = PBXBuildFile; fileRef = 3867D1F11BE7AFE200676F63 /* Screen Shot.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		385734C61A9E29B2006C3681 /* JSSComunicationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSComunicationClient.swift; sourceTree = "<group>"; };
 		385734C81A9E29B8006C3681 /* JSSCommClientDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSCommClientDelegate.swift; sourceTree = "<group>"; };
 		385734CA1A9E29D0006C3681 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3867D1F11BE7AFE200676F63 /* Screen Shot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				385734C81A9E29B8006C3681 /* JSSCommClientDelegate.swift */,
 				385734AD1A9E299E006C3681 /* Images.xcassets */,
 				385734CA1A9E29D0006C3681 /* Main.storyboard */,
+				3867D1F11BE7AFE200676F63 /* Screen Shot.png */,
 				385734A71A9E299E006C3681 /* Supporting Files */,
 			);
 			path = SwiftJSS;
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				385734AE1A9E299E006C3681 /* Images.xcassets in Resources */,
+				3867D1F21BE7AFE200676F63 /* Screen Shot.png in Resources */,
 				385734CB1A9E29D0006C3681 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
