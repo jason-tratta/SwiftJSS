@@ -28,9 +28,9 @@
 //
 
 import Cocoa
+import Alamofire
 
-
-class ViewController: NSViewController, JSSCommClientDelegate, NSXMLParserDelegate {
+class ViewController: NSViewController, NSXMLParserDelegate {
     
     
     @IBOutlet weak var jssAddressTextField: NSTextField!
@@ -72,19 +72,24 @@ class ViewController: NSViewController, JSSCommClientDelegate, NSXMLParserDelega
         let password = passwordSecureText.stringValue
         let thePath = "computers"
         
-        self.fetchXMLFromURL(address, jssUserName: username, jssPassword: password, jssPath: thePath)
         
+        let credential = NSURLCredential(user: username, password: password, persistence: .ForSession)
+        
+
+        let constructedAddress = address + "/JSSResource/" + thePath
+        Alamofire.request(.GET, constructedAddress, parameters: ["application/xml": "Accept"])
+            .authenticate(usingCredential: credential)
+            .responseData { response in
+                debugPrint(response)
+                
+                let xmlParser = NSXMLParser(data: response.data!)
+                xmlParser.delegate = self
+                xmlParser.parse()
+
+    }
     }
     
-    
-    
-    func fetchXMLFromURL(jssAddr: String, jssUserName:String, jssPassword:String, jssPath: String) {
-        
-        let commClient = JSSCommunicationClient(jssUserParam: jssAddr, jssPassParam: jssUserName, delegate: self)
-        commClient.startWithURL(jssAddr, jssUserParam: jssUserName, jssPassParam: jssPassword, jssPath: "/JSSResource/" + jssPath, jssDelegate: self)
-        
-        
-    }
+   
     
     
     func updateComputerCount() {
@@ -111,8 +116,7 @@ class ViewController: NSViewController, JSSCommClientDelegate, NSXMLParserDelega
     }
     
     
-    
-    
+
     
     func parserDidEndDocument(parser: NSXMLParser) {
         
@@ -121,80 +125,7 @@ class ViewController: NSViewController, JSSCommClientDelegate, NSXMLParserDelega
         
     }
     
-    
-    
-    
-    // MARK: CommClient Delegate Methods
-    
-    
-    
-    func dataReturned(data: NSMutableData) {
-        
-        
-       // let xmlOption = NSXMLDocumentValidate
-       // var error: NSErrorPointer? = nil
-        let xmlParser = NSXMLParser(data: data)
-        xmlParser.delegate = self
-        xmlParser.parse()
-        
-        
-    }
-    
-    
-    
-    func updateStatus(statusMsg: String) {
-        
-        print("Status:" + statusMsg)
-        
-        
-    }
-    
-    
-    func connectionFailed(errMsg: String){
-        
-        print("Connection Failed" + errMsg)
-        
-    }
-    
-    
-    func authFailed(errMsg: String){
-        
-        print("Auth Failed" + errMsg)
-        
-        
-    }
-    
-    
-    func urlError(errMsg: String){
-        
-        print("URL Error:" + errMsg)
-        
-    }
-    
-    
-    func otherError(errMsg: String){
-        
-        print("Other Message" + errMsg)
-    }
-    
-    func connectionSucceeded(message: String) {
-        
-        print("Connection Succeeded" + message)
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
     

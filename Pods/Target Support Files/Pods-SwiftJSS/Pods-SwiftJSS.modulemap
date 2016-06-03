@@ -1,0 +1,6 @@
+framework module Pods_SwiftJSS {
+  umbrella header "Pods-SwiftJSS-umbrella.h"
+
+  export *
+  module * { export * }
+}
